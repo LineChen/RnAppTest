@@ -23,7 +23,7 @@ public class MyReactNativeHost extends ReactNativeHost {
 
     @Override
     public boolean getUseDeveloperSupport() {
-        return false;
+        return true;
     }
 
     @Override
@@ -40,9 +40,19 @@ public class MyReactNativeHost extends ReactNativeHost {
         return super.getJSBundleFile();
     }
 
+    @Override
+    protected String getJSMainModuleName() {
+        return "index";
+    }
+
     @Nullable
     @Override
     protected String getBundleAssetName() {
+//        if("m1".equals(ReactSupport.getInstance().getModuleName())){
+//            return "index.android.jsbundle";
+//        } else if("m2".equals(ReactSupport.getInstance().getModuleName())){
+//            return "index2.android.jsbundle";
+//        }
         return "index.android.jsbundle";
     }
 }
