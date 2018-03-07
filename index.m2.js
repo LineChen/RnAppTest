@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import {AppRegistry,
         DeviceEventEmitter,
@@ -10,7 +11,7 @@ class M2 extends React.Component {
         return (
           <View style={styles.container}>
 
-            <Text style={styles.hello}>m1111</Text>
+            <Text style={styles.hello}>m2222</Text>
 
           </View>
         );

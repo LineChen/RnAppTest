@@ -14,4 +14,18 @@
         android:text="跳转到RN页面"
         android:onClick="gotoFirstRnActivity"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转到m1页面"
+        android:onClick="gotoM1RnActivity"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转到m2页面"
+        android:onClick="gotoM2RnActivity"/>
+
+
 </LinearLayout>

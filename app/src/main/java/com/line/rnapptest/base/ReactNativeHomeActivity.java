@@ -18,7 +18,7 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 public class ReactNativeHomeActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
 
     public static void startReactHomeActivity(Context context, String moduleName, String initModule){
-        Intent intent = new Intent();
+        Intent intent = new Intent(context, ReactNativeHomeActivity.class);
         intent.putExtra("moduleName", moduleName);
         intent.putExtra("initModule", initModule);
         context.startActivity(intent);

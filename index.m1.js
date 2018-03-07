@@ -1,10 +1,11 @@
+
 import React, { Component } from 'react';
 import {AppRegistry,
         DeviceEventEmitter,
         Alert, StyleSheet, Text, Button, View, Image} from 'react-native';
 
 
-class M2 extends React.Component {
+class M1 extends React.Component {
 
     render() {
         return (
@@ -30,4 +31,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('m2', () => M2);
+AppRegistry.registerComponent('m1', () => M1);
