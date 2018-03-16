@@ -1,6 +1,11 @@
-include ':app'
+include ':app', ':jsbundlepatch'
 
 //react-native
 include ':react-native-picker'
 //project(':react-native-picker').projectDir = new File('../RnAppTest/node_modules/react-native-picker/android')
 project(':react-native-picker').projectDir = new File(rootProject.projectDir, './node_modules/react-native-picker/android')
+
+
+
+//include ':RnJsholder'
+//project(':RnJsholder').projectDir = new File('../RnJsholder');

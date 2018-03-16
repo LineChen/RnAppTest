@@ -5,8 +5,6 @@ import {AppRegistry,
 
 var {NativeModules} = require('react-native');
 var ToastModule = NativeModules.ToastModule;
-var UtilsModule = NativeModules.UtilsModule
-
 
 class Greeting extends Component {
   render() {
@@ -18,6 +16,10 @@ class Greeting extends Component {
 
 
 class HelloWorld extends React.Component {
+
+constructor(props){
+  super(props);
+}
 
 componentWillMount(){
                        //监听事件名为EventName的事件
@@ -36,15 +38,7 @@ componentWillMount(){
 //    ToastModule.testCallback(1, (msg) => {
 //        ToastModule.show(msg, ToastModule.SHORT);
 //    });
-    try {
-      var {
-        auth
-      } = await UtilsModule.getAuth();
-        //ToastModule.show(auth, ToastModule.SHORT);
-            Alert.alert(auth)
-    } catch (e) {
-      console.error(e);
-    }
+//   Alert.alert(this.state.property)
   }
 
    _onTestEvent() {
@@ -94,7 +88,7 @@ componentWillMount(){
     return (
       <View style={styles.container}>
 
-        <Text style={styles.hello}>Hello, ooooo</Text>
+        <Text style={styles.hello}>{this.props.property}</Text>
 
         <Button
             onPress={this._onPressButton}
@@ -126,4 +120,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('ReactNativeApp', () => HelloWorld);
+AppRegistry.registerComponent('RnTest', () => HelloWorld);

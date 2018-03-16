@@ -35,7 +35,9 @@ public class FirstRnActivity extends AppCompatActivity implements DefaultHardwar
 //                .setInitialLifecycleState(LifecycleState.RESUMED)
 //                .build();
         mReactInstanceManager = RnApplication.getInstance().getReactNativeHost().getReactInstanceManager();
-        mReactRootView.startReactApplication(mReactInstanceManager, "ReactNativeApp", null);
+        Bundle bundle = new Bundle();
+        bundle.putString("property", "today");
+        mReactRootView.startReactApplication(mReactInstanceManager, "ReactNativeApp", bundle);
 
         setContentView(mReactRootView);
     }
