@@ -6,9 +6,9 @@ my_pwd=`pwd`
 index_dir=$my_pwd/RnJsholder/src/indexholder/
 
 #jsbundle生成目录
-jsbundle_build_dir=$my_pwd/RnJsholder/build/jsbundle
+jsbundle_build_dir=$my_pwd/RnJsholder/build/jsbundle/
 #patch生成目录
-jspatch_build_dir=$my_pwd/RnJsholder/build/jspatch
+jspatch_build_dir=$my_pwd/RnJsholder/build/jspatch/
 
 #jsbundle备份文件夹
 jsbundle_bak_dir=$my_pwd/RnJsholder/bak/jsbundle/
@@ -40,75 +40,44 @@ module_index_sufix=.index.js
         module_name=`_jq '.moduleName'`
         module_version=`_jq '.moduleVersion'`
         min_appversion=`_jq '.minAppVersion'`
-        echo "${module_name} , ${module_version}"
 
         js_entry_file=$index_dir$module_name$module_index_sufix
         js_output_file=$jsbundle_output_folder$module_name$jsbundle_sufix
 
-        if [ ! -d ${js_entry_file} ];then
+        if [ ! -f ${js_entry_file} ];then
             echo "${js_entry_file}不存在"
         else
              #生成jsbundle
             echo -e "\t模块${module_name}构建中"
             react-native bundle --entry-file ${js_entry_file} --bundle-output ${js_output_file} --platform android --assets-dest ./app/src/main/res/ --dev false
-            echo -e "\t模块${module_name}构建成功"
 
             #保存一份到build目录下
-
+            module_jsbundle_build_dir=$jsbundle_build_dir$module_name
+            if [ ! -d ${module_jsbundle_build_dir} ];then
+                mkdir -p ${module_jsbundle_build_dir}
+            fi
+            build_file=${module_jsbundle_build_dir}"/"${module_name}${jsbundle_sufix}
+            cp ${js_output_file} ${build_file}
+            echo -e "\t模块${module_name}构建成功"
 
             #备份jsbundle
-            module_bundle_bak_folder=$jsbundle_bak_dir$module_name
-            if [ ! -d ${module_bundle_bak_folder} ];then
-                mkdir -p ${module_bundle_bak_folder}
+            module_bundle_bak_dir=$jsbundle_bak_dir$module_name
+            if [ ! -d ${module_bundle_bak_dir} ];then
+                mkdir -p ${module_bundle_bak_dir}
             fi
-            bak_file=${module_bundle_bak_folder}"/"${module_name}${jsbundle_sufix}"_"${module_version}
+            bak_file=${module_bundle_bak_dir}"/"${module_name}${jsbundle_sufix}"_"${module_version}
             cp ${js_output_file} ${bak_file}
             echo -e "\t模块${module_name} jsbundle备份至$bak_file"
 
 
             #生成模块对应的patch文件夹c
-            module_patch_folder=$jspatch_bak_dir$module_name
-            if [ ! -d ${module_patch_folder} ];then
-                mkdir -p ${module_patch_folder}
+            module_patch_dir=$jspatch_build_dir$module_name
+            if [ ! -d ${module_patch_dir} ];then
+                mkdir -p ${module_patch_dir}
             fi
 
+            java -jar jspatch.jar ${jsbundle_bak_dir} ${jspatch_build_dir}
+
         fi
 
-    done
-
-
-
-
-
-    for file_a in ${index_dir}/*
-    do
-        temp_file=`basename $file_a`
-        module_name=${temp_file%%.*}
-        js_entry_file=$index_dir$temp_file
-        js_output_file=$jsbundle_output_folder$module_name$jsbundle_sufix
-
-        #生成jsbundle
-        echo -e "\t模块${module_name}构建中"
-        react-native bundle --entry-file ${js_entry_file} --bundle-output ${js_output_file} --platform android --assets-dest ./app/src/main/res/ --dev false
-        echo -e "\t模块${module_name}构建成功"
-
-        #备份jsbundle
-        module_bundle_bak_folder=$jsbundle_bak_dir$module_name
-        if [ ! -d ${module_bundle_bak_folder} ];then
-            mkdir -p ${module_bundle_bak_folder}
-        fi
-        date=$(date +%Y%m%d%H%M%S)
-        bak_file=${module_bundle_bak_folder}"/"${module_name}${jsbundle_sufix}"_"${date}
-        cp ${js_output_file} ${bak_file}
-        echo -e "\t模块${module_name} jsbundle备份至$bak_file"
-
-        #生成模块对应的patch文件夹c
-        module_patch_folder=$jspatch_bak_dir$module_name
-        if [ ! -d ${module_patch_folder} ];then
-            mkdir -p ${module_patch_folder}
-        fi
-
-#        echo "bak_jsbundle_folder: $bak_jsbundle_folder "
-#        echo "bak_jspatch_folder: $bak_jspatch_folder"
-        java -jar jspatch.jar ${jsbundle_bak_dir} ${jspatch_bak_dir}
     done

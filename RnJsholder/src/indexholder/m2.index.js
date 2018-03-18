@@ -12,7 +12,7 @@ class M2 extends React.Component {
           <View style={styles.container}>
 
             <Text style={styles.hello}>m2222</Text>
-
+            <Text style={styles.hello}>ffffff</Text>
           </View>
         );
       }
