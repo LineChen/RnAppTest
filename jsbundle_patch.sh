@@ -18,8 +18,11 @@ jspatch_bak_dir=$my_pwd/RnJsholder/bak/jspatch/
 #jsbundle输出路径,默认是./app/src/main/assets/
 jsbundle_output_folder=$my_pwd/app/src/main/assets/
 
+settings=$my_pwd/RnJsholder/settings.json
+
 #jsbundle文件后缀
 jsbundle_sufix=.android.jsbundle
+module_index_sufix=.index.js
 
 
 
@@ -28,6 +31,54 @@ jsbundle_sufix=.android.jsbundle
         echo "非法目录"
         exit
     fi
+
+    cat $settings | jq -c -r ".[]" | while read row
+    do
+        _jq() {
+            echo ${row} | jq -r ${1}
+        }
+        module_name=`_jq '.moduleName'`
+        module_version=`_jq '.moduleVersion'`
+        min_appversion=`_jq '.minAppVersion'`
+        echo "${module_name} , ${module_version}"
+
+        js_entry_file=$index_dir$module_name$module_index_sufix
+        js_output_file=$jsbundle_output_folder$module_name$jsbundle_sufix
+
+        if [ ! -d ${js_entry_file} ];then
+            echo "${js_entry_file}不存在"
+        else
+             #生成jsbundle
+            echo -e "\t模块${module_name}构建中"
+            react-native bundle --entry-file ${js_entry_file} --bundle-output ${js_output_file} --platform android --assets-dest ./app/src/main/res/ --dev false
+            echo -e "\t模块${module_name}构建成功"
+
+            #保存一份到build目录下
+
+
+            #备份jsbundle
+            module_bundle_bak_folder=$jsbundle_bak_dir$module_name
+            if [ ! -d ${module_bundle_bak_folder} ];then
+                mkdir -p ${module_bundle_bak_folder}
+            fi
+            bak_file=${module_bundle_bak_folder}"/"${module_name}${jsbundle_sufix}"_"${module_version}
+            cp ${js_output_file} ${bak_file}
+            echo -e "\t模块${module_name} jsbundle备份至$bak_file"
+
+
+            #生成模块对应的patch文件夹c
+            module_patch_folder=$jspatch_bak_dir$module_name
+            if [ ! -d ${module_patch_folder} ];then
+                mkdir -p ${module_patch_folder}
+            fi
+
+        fi
+
+    done
+
+
+
+
 
     for file_a in ${index_dir}/*
     do
@@ -49,9 +100,9 @@ jsbundle_sufix=.android.jsbundle
         date=$(date +%Y%m%d%H%M%S)
         bak_file=${module_bundle_bak_folder}"/"${module_name}${jsbundle_sufix}"_"${date}
         cp ${js_output_file} ${bak_file}
-        echo -e "\t模块${module_name} jsbundle备份成功$bak_file"
+        echo -e "\t模块${module_name} jsbundle备份至$bak_file"
 
-        #生成模块对应的patch文件夹
+        #生成模块对应的patch文件夹c
         module_patch_folder=$jspatch_bak_dir$module_name
         if [ ! -d ${module_patch_folder} ];then
             mkdir -p ${module_patch_folder}
@@ -60,5 +111,4 @@ jsbundle_sufix=.android.jsbundle
 #        echo "bak_jsbundle_folder: $bak_jsbundle_folder "
 #        echo "bak_jspatch_folder: $bak_jspatch_folder"
         java -jar jspatch.jar ${jsbundle_bak_dir} ${jspatch_bak_dir}
-
     done
