@@ -8,9 +8,12 @@ react-native bundle --entry-file index.m1.js --bundle-output ./app/src/main/asse
 
 react-native bundle --entry-file index.m2.js --bundle-output ./app/src/main/assets/m2.android.jsbundle --platform android --assets-dest ./app/src/main/res/ --dev false
 
-react-native bundle --entry-file navigator.test.js --bundle-output ./app/src/main/assets/index.android.jsbundle --platform android --assets-dest ./app/src/main/res/ --dev false
+react-native bundle --entry-file ./SRC/navigator.test.js --bundle-output ./app/src/main/assets/index.android.jsbundle --platform android --assets-dest ./app/src/main/res/ --dev false
 
 react-native bundle --entry-file ./RnJsholder/src/indexholder/index.m1.js --bundle-output ./app/src/main/assets/m1.android.jsbundle --platform android --dev false
+
+
+react-native bundle --entry-file index.pic.js --bundle-output ./app/src/main/assets/index.android.jsbundle --platform android --assets-dest ./app/src/main/res --dev false
 
 
 2.增量升级

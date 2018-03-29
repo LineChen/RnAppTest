@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context="com.line.rnapptest.MainActivity">
 
+    <EditText
+        android:id="@+id/et_show_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        />
+
 
     <Button
         android:layout_width="wrap_content"
@@ -18,14 +25,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="跳转到m1页面"
-        android:onClick="gotoM1RnActivity"/>
+        android:onClick="gotoM1RnActivity"
+        android:visibility="gone"/>
 
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="跳转到m2页面"
-        android:onClick="gotoM2RnActivity"/>
+        android:onClick="gotoM2RnActivity"
+        android:visibility="gone"/>
 
 
 </LinearLayout>

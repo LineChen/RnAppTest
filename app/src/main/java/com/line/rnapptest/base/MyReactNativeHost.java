@@ -27,7 +27,7 @@ public class MyReactNativeHost extends ReactNativeHost {
     @Override
     public boolean getUseDeveloperSupport() {
         Log.e(TAG, "getUseDeveloperSupport");
-        return false;
+        return true;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class MyReactNativeHost extends ReactNativeHost {
             return "m2.index";
         }
 //        return "index.test";
-        return "index.android";
+        return "index";
     }
 
     @Nullable
@@ -67,6 +67,6 @@ public class MyReactNativeHost extends ReactNativeHost {
         } else if("m2".equals(ReactSupport.getInstance().getModuleName())){
             return "m2.android.jsbundle";
         }
-        return "m1.android.jsbundle";
+        return "index.android.jsbundle";
     }
 }
