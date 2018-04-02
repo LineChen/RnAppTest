@@ -3,7 +3,8 @@ import {
     Button,
     Image,
     View,
-    Text
+    Text,
+    StyleSheet
 } from 'react-native';
 
 class ProfileScreen extends React.Component {
@@ -12,15 +13,36 @@ class ProfileScreen extends React.Component {
   };
   render() {
     const { navigate } = this.props.navigation;
+    const {params} = this.props.navigation.state;
     return (
-      <Button
-        title="kkkkkk"
-//        onPress={() =>
-//          navigate('Profile', { name: 'Jane' });
-//        }
-      />
+
+        <View style={styles.container}>
+
+        <Text style={styles.hello}>{params.name}</Text>
+
+        <Button
+                title="kkkkkk"
+        //        onPress={() =>
+        //          navigate('Profile', { name: 'Jane' });
+        //        }
+              />
+        </View>
+
     );
   }
 }
+
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  hello: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+});
+
 
 module.exports = ProfileScreen

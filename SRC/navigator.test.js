@@ -12,9 +12,14 @@ import ProfileScreen from './profile'
 
 
 const App = StackNavigator({
-  Main: {screen: MainScreen},
-  Profile: {screen: ProfileScreen},
-});
+      Main: {screen: MainScreen},
+      Profile: {screen: ProfileScreen},
+
+    },
+    {
+        initialRouteName: 'Main'
+    }
+   );
 
 AppRegistry.registerComponent('RnTest', () => App);
 
