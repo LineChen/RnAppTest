@@ -17,10 +17,11 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 
 public class ReactNativeHomeActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
 
-    public static void startReactHomeActivity(Context context, String moduleName, String showPage){
+    public static void startReactHomeActivity(Context context, String moduleName, String showPage, Bundle options){
         Intent intent = new Intent(context, ReactNativeHomeActivity.class);
         intent.putExtra("moduleName", moduleName);
         intent.putExtra("showPage", showPage);
+        intent.putExtras(options);
         context.startActivity(intent);
     }
 
@@ -38,6 +39,10 @@ public class ReactNativeHomeActivity extends AppCompatActivity implements Defaul
 
         Bundle bundle = new Bundle();
         bundle.putString("showPage", showPage);
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            bundle.putAll(extras);
+        }
 
         mReactRootView = new ReactRootView(this);
 

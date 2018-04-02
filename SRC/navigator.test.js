@@ -11,13 +11,15 @@ import ProfileScreen from './profile'
 
 
 
-const App = StackNavigator({
+const App = StackNavigator(
+    {
       Main: {screen: MainScreen},
       Profile: {screen: ProfileScreen},
-
     },
+
     {
-        initialRouteName: 'Main'
+        initialRouteName: 'Profile',
+        initialRouteParams: { name: '初始值' }
     }
    );
 
