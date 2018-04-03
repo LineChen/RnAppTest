@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 import {
     StackNavigator,
 } from 'react-navigation';
@@ -11,19 +13,46 @@ import ProfileScreen from './profile'
 
 
 
-const App = StackNavigator(
-    {
-      Main: {screen: MainScreen},
-      Profile: {screen: ProfileScreen},
-    },
+//const App = StackNavigator(
+//    {
+//      Main: {screen: MainScreen},
+//      Profile: {screen: ProfileScreen},
+//    },
+//
+//    {
+//        initialRouteName: 'Profile',
+//        initialRouteParams: { pageId: "kkk" }
+//    }
+//   );
 
-    {
-        initialRouteName: 'Profile',
-        initialRouteParams: { name: '初始值' }
-    }
+   const AppView = () => (
+    <App/>
    );
 
-AppRegistry.registerComponent('RnTest', () => App);
+  class Navigation extends React.Component {
+        render() {
+        const App = StackNavigator(
+            {
+              Main: {screen: MainScreen},
+              Profile: {screen: ProfileScreen},
+            },
+
+            {
+                initialRouteName: 'Profile',
+                initialRouteParams: {
+                    pageId: this.props.pageId,
+                    pageName: this.props.pageName
+                 }
+            }
+           );
+            return (
+                <App/>
+            );
+          }
+  }
+
+
+AppRegistry.registerComponent('RnTest', () => Navigation);
 
 
 

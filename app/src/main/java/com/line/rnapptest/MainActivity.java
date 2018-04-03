@@ -20,17 +20,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void gotoFirstRnActivity(View view) {
         String showPage = etShowPage.getText().toString().trim();
-        ReactNativeHomeActivity.startReactHomeActivity(this, "RnTest", showPage);
+        Bundle options = new Bundle();
+        options.putString("pageId", "520ee");
+        options.putString("pageName", "来自火星的你");
+        ReactNativeHomeActivity.startReactHomeActivity(this, "RnTest", showPage, options);
 //        startActivity(new Intent(this, FirstRnActivity.class));
     }
 
     public void gotoM1RnActivity(View view) {
         ReactSupport.getInstance().setModuleName("m1");
-        ReactNativeHomeActivity.startReactHomeActivity(this, "m1", "");
+        ReactNativeHomeActivity.startReactHomeActivity(this, "m1", "", null);
     }
 
     public void gotoM2RnActivity(View view) {
         ReactSupport.getInstance().setModuleName("m2");
-        ReactNativeHomeActivity.startReactHomeActivity(this, "m2", "");
+        ReactNativeHomeActivity.startReactHomeActivity(this, "m2", "", null);
     }
 }

@@ -21,7 +21,9 @@ public class ReactNativeHomeActivity extends AppCompatActivity implements Defaul
         Intent intent = new Intent(context, ReactNativeHomeActivity.class);
         intent.putExtra("moduleName", moduleName);
         intent.putExtra("showPage", showPage);
-        intent.putExtras(options);
+        if (options != null) {
+            intent.putExtras(options);
+        }
         context.startActivity(intent);
     }
 

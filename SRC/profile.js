@@ -18,14 +18,15 @@ class ProfileScreen extends React.Component {
 
         <View style={styles.container}>
 
-        <Text style={styles.hello}>{params.name}</Text>
+        <Text style={styles.hello}>pageId = {params.pageId}</Text>
+
+        <Text style={styles.hello}>pageName = {params.pageName}</Text>
 
         <Button
-                title="kkkkkk"
-        //        onPress={() =>
-        //          navigate('Profile', { name: 'Jane' });
-        //        }
-              />
+            title="goBack"
+            onPress={() => this.props.navigation.goBack()}
+            />
+
         </View>
 
     );
