@@ -40,8 +40,8 @@ import ProfileScreen from './profile'
             {
                 initialRouteName: 'Profile',
                 initialRouteParams: {
-                    pageId: this.props.pageId,
-                    pageName: this.props.pageName
+                    pageId: this.props.params.pageId,
+                    pageName: this.props.params.pageName
                  }
             }
            );

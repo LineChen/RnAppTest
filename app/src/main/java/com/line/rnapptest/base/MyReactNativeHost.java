@@ -1,12 +1,14 @@
 package com.line.rnapptest.base;
 
 import android.app.Application;
+import android.os.Environment;
 import android.util.Log;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class MyReactNativeHost extends ReactNativeHost {
     @Override
     public boolean getUseDeveloperSupport() {
         Log.e(TAG, "getUseDeveloperSupport");
-        return true;
+        return false;
     }
 
     @Override
@@ -43,7 +45,10 @@ public class MyReactNativeHost extends ReactNativeHost {
     @Override
     protected String getJSBundleFile() {
         Log.e(TAG, "getJSBundleFile");
-        return super.getJSBundleFile();
+        String path = Environment.getExternalStorageDirectory().getPath() + "/" + "RnSrc/m1.android.jsbundle";
+        File file = new File(path);
+        String ret = file.exists() ? path : null;
+        return ret;
     }
 
     @Override
@@ -66,6 +71,12 @@ public class MyReactNativeHost extends ReactNativeHost {
             return "m1.android.jsbundle";
         } else if("m2".equals(ReactSupport.getInstance().getModuleName())){
             return "m2.android.jsbundle";
+        } else if("classcourse".equals(ReactSupport.getInstance().getModuleName())){
+            return "classcourse.android.jsbundle";
+        } else if("shop".equals(ReactSupport.getInstance().getModuleName())){
+            return "shop.android.jsbundle";
+        }else if("big".equals(ReactSupport.getInstance().getModuleName())){
+            return "big.android.jsbundle";
         }
         return "index.android.jsbundle";
     }

@@ -1,4 +1,4 @@
-include ':app', ':jsbundlepatch'
+include ':app', ':jsbundlepatch', ':enumbuildprocessor', ':processor-annotation'
 
 //react-native
 include ':react-native-picker'

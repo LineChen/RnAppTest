@@ -1,0 +1,39 @@
+[{
+  "minAppVersion": "3.36.0",
+  "moduleList": [{
+    "jsBundlePatches": [{
+      "downloadUrl": "",
+      "name": "m1.patch_2018031802_2018031803",
+      "version": "2018031802_2018031803"
+    }, {
+      "downloadUrl": "",
+      "name": "m1.patch_2018031801_2018031802",
+      "version": "2018031801_2018031802"
+    }],
+    "latestBundle": {
+      "downloadUrl": "",
+      "name": "m1.android.jsbundle_2018031803",
+      "version": "2018031803"
+    },
+    "moduleName": "m1"
+  }, {
+    "jsBundlePatches": [],
+    "latestBundle": {
+      "downloadUrl": "",
+      "name": "m2.android.jsbundle_2018031802",
+      "version": "2018031802"
+    },
+    "moduleName": "m2"
+  }]
+}, {
+  "minAppVersion": "3.37.0",
+  "moduleList": [{
+    "jsBundlePatches": [],
+    "latestBundle": {
+      "downloadUrl": "",
+      "name": "m1.android.jsbundle_2018031804",
+      "version": "2018031804"
+    },
+    "moduleName": "m1"
+  }]
+}]

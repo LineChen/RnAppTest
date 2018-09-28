@@ -13,7 +13,10 @@ class M1 extends React.Component {
 
             <Text style={styles.hello}>m1111</Text>
 
-            <Text style={styles.hello}>hot fix</Text>
+            <Text style={styles.hello}>m22222</Text>
+//
+//           <Text style={styles.hello}>hot asdasdasdfix</Text>
+
 
           </View>
         );

@@ -1,0 +1,32 @@
+[{
+  "jsBundlePatches": [{
+    "downloadUrl": "http://download.jiayouxueba.com/jsbundle/android/handpaint.patch_2018031501_2018031502",
+    "name": "handpaint.patch_2018031501_2018031502",
+    "version": "2018031501_2018031502"
+  }, {
+    "downloadUrl": "http://download.jiayouxueba.com/jsbundle/android/handpaint.patch_2018031502_2018031503",
+    "name": "handpaint.patch_2018031502_2018031503",
+    "version": "2018031502_2018031503"
+  }],
+  "latestBundles": [{
+    "bundleName": "handpaint.android.jsbundle_2018031502",
+    "bundleVersion": "2018031502",
+    "downloadUrl": "http://download.jiayouxueba.com/jsbundle/android/handpaint.android.jsbundle_2018031502",
+    "minAppVersion": "3.35.0"
+  }, {
+    "bundleName": "handpaint.android.jsbundle_2018031503",
+    "bundleVersion": "2018031503",
+    "downloadUrl": "http://download.jiayouxueba.com/jsbundle/android/handpaint.android.jsbundle_2018031503",
+    "minAppVersion": "3.36.0"
+  }],
+  "moduleName": "handpaint"
+}, {
+  "jsBundlePatches": [],
+  "latestBundles": [{
+    "bundleName": "classcourse.android.jsbundle_2018041601",
+    "bundleVersion": "2018041601",
+    "downloadUrl": "http://download.jiayouxueba.com/jsbundle/android/classcourse.android.jsbundle_2018041601",
+    "minAppVersion": "3.36.0"
+  }],
+  "moduleName": "classcourse"
+}]

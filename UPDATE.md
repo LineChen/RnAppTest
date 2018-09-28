@@ -16,6 +16,21 @@ react-native bundle --entry-file ./RnJsholder/src/indexholder/index.m1.js --bund
 react-native bundle --entry-file index.pic.js --bundle-output ./app/src/main/assets/index.android.jsbundle --platform android --assets-dest ./app/src/main/res --dev false
 
 
+react-native bundle --entry-file ./RnModule/src/classcourse/react-native-app/index.js --bundle-output ./app/src/main/assets/classcourse.android.jsbundle --platform android --assets-dest ./app/src/main/res --dev false
+
+
+react-native bundle --entry-file ./RnModule/src/react-native-app/index.js --bundle-output ./app/src/main/assets/shop.android.jsbundle --platform android --assets-dest ./app/src/main/res --dev false
+
+
+react-native bundle --entry-file ./RnModule/src/shop_classcouse.index.js --bundle-output ./app/src/main/assets/shop_classcourse.android.jsbundle --platform android --assets-dest ./app/src/main/res --dev false
+
+
+react-native bundle --entry-file ./RnModule/src/jyxb.js --bundle-output ./app/src/main/assets/index.android.jsbundle --platform android --assets-dest ./app/src/main/res --dev false
+
+
+react-native bundle --entry-file ./RnModule/src/index.js  --bundle-output ./app/src/main/assets/big.android.jsbundle --platform android --assets-dest ./app/src/main/res --dev false
+
+
 2.增量升级
 react-native bundle --entry-file index.js --bundle-output ./bundle/androidBundle/index.android.jsbundle --platform android --assets-dest ./bundle/androidBundle/ --dev false
 

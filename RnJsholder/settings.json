@@ -1,15 +1,15 @@
 [
   {
     "moduleName":"m1",
-    "moduleVersion":"2018031802",
-    "minAppVersion":"3.35.0",
+    "moduleVersion":"2018031804",
+    "minAppVersion":"3.37.0",
     "message":"添加了商城"
   },
 
   {
     "moduleName":"m2",
     "moduleVersion":"2018031802",
-    "minAppVersion":"3.35.0",
+    "minAppVersion":"3.36.0",
     "message":"修改了一些bug"
   }
 ]

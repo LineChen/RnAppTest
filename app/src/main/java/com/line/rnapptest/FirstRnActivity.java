@@ -9,12 +9,13 @@ import android.view.KeyEvent;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
+import com.line.processor_annotation.BundleBuild;
 import com.line.rnapptest.base.RnApplication;
 
 /**
  * Created by chenliu on 2018/2/26.
  */
-
+@BundleBuild(settingFilePath= "/Users/chenliu/studyApp/RnAppTest/RnModule/settings.json")
 public class FirstRnActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
 
     private ReactRootView mReactRootView;
@@ -38,7 +39,6 @@ public class FirstRnActivity extends AppCompatActivity implements DefaultHardwar
         Bundle bundle = new Bundle();
         bundle.putString("property", "today");
         mReactRootView.startReactApplication(mReactInstanceManager, "Pic", bundle);
-
         setContentView(mReactRootView);
     }
 

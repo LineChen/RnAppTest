@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleWaterWaveProgressBar">
+        <attr name="progressRadius" format="dimension"/>
+        <attr name="startColor" format="color"/>
+        <attr name="endColor" format="color"/>
+        <attr name="circleWidth" format="dimension"/>
+        <attr name="ballColor" format="color"/>
+        <attr name="ballSize" format="dimension"/>
+        <attr name="innerColor" format="color"/>
+        <attr name="innerRadius" format="dimension"/>
+        <attr name="timeTextColor" format="color"/>
+        <attr name="timeTextSize" format="dimension"/>
+        <attr name="MAX" format="float"/>
+        <attr name="progress" format="float"/>
+        <attr name="waveColorFrontTop" format="color"/>
+        <attr name="waveColorFrontBottom" format="color"/>
+        <attr name="waveColorBehind" format="color"/>
+        <attr name="showText" format="boolean"/>
+        <attr name="string" format="string"/>
+        <attr name="style">
+            <enum name="NUMBER" value="1"/>
+            <enum name="STRING" value="0"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="GradualCornerView">
+        <attr name="gcv_color_start" format="color|reference" />
+        <attr name="gcv_color_end" format="color|reference" />
+        <attr name="gcv_radius" format="reference|dimension" />
+        <attr name="gcv_orientation">
+            <!-- Defines an horizontal widget. -->
+            <enum name="horizontal" value="0" />
+            <!-- Defines a vertical widget. -->
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PasswordView">
+        <attr name="passwordLength" format="integer" />
+        <attr name="passwordPadding" format="dimension" />
+        <attr name="cipherTextSize" format="dimension"/>
+        <attr name="borderBackgroud" format="color" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="borderHeight" format="dimension"/>
+        <attr name="borderCorner" format="integer"/>
+        <attr name="cipherEnable" format="boolean"/>
+        <attr name="cipherColor" format="color"/>
+    </declare-styleable>
+</resources>
